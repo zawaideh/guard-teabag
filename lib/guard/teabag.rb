@@ -49,7 +49,7 @@ module Guard
       @resolver.resolve(original_paths)
 
       failed = false
-      (@options[:suites] || @resolver.suites).each do |suite, files|
+      @resolver.suites.each do |suite, files|
         failed = @runner.run(files, @options[:run_on_changes].merge(suite: suite))
       end
 
